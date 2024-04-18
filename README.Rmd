@@ -1,0 +1,88 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# `uwu` (ꈍᴗꈍ)♡
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+## Installation
+
+You can install the development version of uwu like so:
+
+This requires Rust to be installed. 
+
+``` r
+if (requireNamespace("pak")) install.packages("pak")
+pak::pak("josiahparry/uwu")
+```
+
+
+
+## Example
+
+Generate v4 UUIDs ~20x faster than `uuid` 
+
+```{r example}
+library(uwu)
+new_v4(10)
+```
+
+Or you can generate v7 UUIDs ~2.5x slower than `uuid` 
+
+```{r}
+new_v7(10)
+```
+
+The neat part, though, is that we can impute a UUID into a character vector by reference. This means that once the operation has occured, you cannot take it back!!
+
+```{r}
+x <- c("a", NA, "c")
+
+# x has been imputed 
+impute_uuid(x)
+
+x
+```
+
+It can also have a prefix added to it:
+
+```{r}
+x <- c("a", NA, "c")
+
+# x has been imputed 
+impute_uuid(x, prefix = "NA_")
+x
+```
+
+Here's an example to address the problem that prompted this.
+
+```{r}
+# define a data.frame with missing values 
+to_impute <- data.frame(
+  col_a = c("one", "two", NA),
+  col_b = c("a", NA, "c"),
+  col_c = c(NA, "and", "me")
+)
+
+df_names <- colnames(to_impute)
+
+for (j in seq_along(to_impute)) {
+    impute_uuid(to_impute[[j]], paste0("NA_", df_names[j], "_"))
+}
+
+to_impute
+```
+
