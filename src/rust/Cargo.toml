@@ -10,4 +10,5 @@ name = 'uwu'
 
 [dependencies]
 extendr-api = '*'
+short-uuid = "0.1.2"
 uuid = { version = "*", features = ["v4", "v7", "fast-rng"] }

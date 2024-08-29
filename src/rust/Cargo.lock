@@ -127,6 +127,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "short-uuid"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4257805fdeb4183434213216a1ffe4524e2d3863084d1d2af9f9df51cc409105"
+dependencies = [
+ "uuid",
+]
+
+[[package]]
 name = "syn"
 version = "2.0.60"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -159,6 +168,7 @@ name = "uwu"
 version = "0.1.0"
 dependencies = [
  "extendr-api",
+ "short-uuid",
  "uuid",
 ]
 

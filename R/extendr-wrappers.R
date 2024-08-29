@@ -24,5 +24,17 @@ new_v7 <- function(n) .Call(wrap__new_v7, n)
 
 impute_uuid_ <- function(x, prefix) invisible(.Call(wrap__impute_uuid_, x, prefix))
 
+short_flickr_base58_ <- function(n) .Call(wrap__short_flickr_base58_, n)
+
+short_bitcoin58_ <- function(n) .Call(wrap__short_bitcoin58_, n)
+
+uuid_to_short_flickr_ <- function(uuid) .Call(wrap__uuid_to_short_flickr_, uuid)
+
+uuid_to_short_bitcoin58_ <- function(uuid) .Call(wrap__uuid_to_short_bitcoin58_, uuid)
+
+short_flickr_to_uuid_ <- function(short_uuid) .Call(wrap__short_flickr_to_uuid_, short_uuid)
+
+short_bitcoin58_to_uuid_ <- function(short_uuid) .Call(wrap__short_bitcoin58_to_uuid_, short_uuid)
+
 
 # nolint end
